@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dragon Ball Super 2D</title>
+    <style type="text/css">
+        body {
+            margin: 0;
+            background: #2B2E31;
+            overflow: hidden; /* Hide scrollbars */
+        }
+
+        canvas {
+            display: block; /* Make the canvas fill the whole available space */
+            max-width: 100%; /* Limit the maximum width to 100% of the viewport */
+            max-height: 100%; /* Limit the maximum height to 100% of the viewport */
+            margin: auto; /* Center the canvas horizontally and vertically */
+        }
+    </style>
+
+    <script type="text/javascript" src="js/phaser.min.js"></script>
+    <script type="text/javascript" src="js/init.js"></script>
+    <script type="text/javascript" src="js/preload.js"></script>
+    <script type="text/javascript" src="js/menu.js"></script>
+    <script type="text/javascript" src="js/info.js"></script>
+    <script type="text/javascript" src="js/ojogo.js"></script>
+    <script type="text/javascript" src="js/gameover.js"></script>
+
+    <script>
+        (function(){
+            // Calculate dimensions based on the device's screen size
+            var width = Math.min(window.innerWidth * window.devicePixelRatio, 800); // Limit max width to 800
+            var height = Math.min(window.innerHeight * window.devicePixelRatio, 600); // Limit max height to 600
+            var game = new Phaser.Game(width, height, Phaser.CANVAS, "game");
+
+            game.state.add("Init", init);
+            game.state.add("Preload", preload);
+            game.state.add("Menu", menu);
+            game.state.add("oJogo", oJogo);
+            game.state.add("Info", info);
+            game.state.add("GameOver", gameover);
+
+            game.state.start("Init");
+        })();
+    </script>
+</head>
+<body>
+</body>
+</html>
